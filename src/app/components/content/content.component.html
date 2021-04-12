@@ -1,0 +1,12 @@
+<div class="row justify-content-center">
+    <app-pagination class="col-10" [currentPage]="page" [totalResults]="total" (newPage)="changePage($event)" *ngIf="total > 0"></app-pagination>
+    <h1 class="word-wrap col-12 mb-3">
+        <img src="assets/img/characters.png" alt="" /> Personagens
+        <button class="btn btn-danger m-auto" (click)="getLucky()" *ngIf="total > 0">
+        Ter Sorte
+      </button>
+    </h1>
+    <h1 *ngIf="total === 0 && name">Ups! personagem não encontrado</h1>
+    <app-hero *ngFor="let hero of heros" [hero]="hero" class="col-xs-12 col-md-6 col-lg-4 mb-5"></app-hero>
+    <app-pagination class="col-10" [currentPage]="page" [totalResults]="total" (newPage)="changePage($event)" *ngIf="total > 0"></app-pagination>
+</div>

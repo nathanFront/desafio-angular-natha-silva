@@ -1,0 +1,10 @@
+<div class="p-4" style="background-color: whitesmoke; height: 100%;" *ngIf="!loading">
+    <h3 class="word-wrap" *ngIf="!heroId"><img src="assets/img/favourites.png" alt=""> Meus Favoritos {{comics.length}}</h3>
+    <h4 *ngIf="comics.length === 0">
+        Você não tem quadrinhos favoritos :(
+    </h4>
+    <app-pagination class="col-10" [currentPage]="page" [totalResults]="total" (newPage)="changePage($event)" *ngIf="total>0 && heroId"></app-pagination>
+
+    <app-comic *ngFor="let comic of comics" [comic]="comic" [favorite]="isFavorite(comic)" (change)="loadList()"></app-comic>
+</div>
+<app-loading *ngIf="loading"></app-loading>

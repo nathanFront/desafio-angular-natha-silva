@@ -1,0 +1,27 @@
+<div class="card shadow" style="height: 100%" *ngIf="hero.name">
+    <img class="card-img-top" [src]="imageSrc" />
+    <div class="card-body d-flex flex-column">
+        <h3 class="card-title">{{ hero.name }}</h3>
+        <small class="text-muted mb-2">
+        {{
+          hero.description.length > 40
+            ? hero.description.substr(0, 40) + "..."
+            : hero.description
+        }}
+      </small>
+        <div class="row mt-auto">
+            <div class="row col-12" *ngIf="hero.comics.items.length > 0">
+                <h5 class="col-12"><i>HQ Relacionados</i></h5>
+                <small *ngFor="let comic of hero.comics.items.slice(0, 3)" class="col-xs-12 col-sm-6 text-muted mb-2">
+          {{
+            comic.name.length > 20 ? comic.name.substr(0, 20) + "..." : comic.name
+          }}
+        </small>
+                <small *ngIf="hero.comics.items.length > 3" class="col-xs-12 col-sm-6 text-muted mb-2">
+          <b>E outros...</b>
+        </small>
+            </div>
+            <button class="col-10 btn btn-danger m-auto" (click)="openComics()">Detalhes</button>
+        </div>
+    </div>
+</div>

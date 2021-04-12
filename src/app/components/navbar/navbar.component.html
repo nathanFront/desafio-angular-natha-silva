@@ -1,0 +1,10 @@
+<nav class="navbar navbar-dark bg-dark sticky-top row m-0">
+    <a href="/" class="col-12 col-sm-3 text-center"><img src="/assets/img/marvel.png" alt="" class="navbar-brand" height="70px"></a>
+    <form class="form-inline col-xs-12 row ml-auto mr-auto mr-sm-2" (ngSubmit)="onSubmit()">
+        <input class="form-control col-10" type="search" placeholder="Buscar" name="name" [(ngModel)]="name">
+        <button class="btn btn-danger col-2" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+    <a href="#fav" class="d-sm-none col-12 text-center text-danger mt-3 text-decoration">
+        <h5><img src="assets/img/favourites.png" alt=""> Meus Favoritos</h5>
+    </a>
+</nav>

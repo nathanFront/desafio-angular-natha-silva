@@ -1,0 +1,20 @@
+<div class="row justify-content-center">
+    <ul class="pagination">
+        <li class="page-item" [ngClass]="{ disabled: currentPage === 1 }">
+            <button class="page-link" (click)="onClick(currentPage - 1)" [disabled]="currentPage === 1">
+          Anterior
+        </button>
+        </li>
+        <li *ngFor="let i of pages" class="page-item" [ngClass]="{ active: i === currentPage }">
+            <button class="page-link" (click)="onClick(i)">
+          {{ i }}
+        </button>
+        </li>
+
+        <li class="page-item" [ngClass]="{ disabled: currentPage === lastPage }">
+            <button class="page-link" (click)="onClick(currentPage + 1)" [disabled]="currentPage === lastPage">
+          Proxima
+        </button>
+        </li>
+    </ul>
+</div>
